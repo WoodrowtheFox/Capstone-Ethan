@@ -24,6 +24,9 @@ import java.util.HashMap;
 import static javafx.scene.paint.Color.*;
 
 public class PerodicGame extends Application {
+    public PerodicGame(){
+        gamepane = new Pane();
+    }
 
     Object choice = "";
 
@@ -39,7 +42,7 @@ public class PerodicGame extends Application {
     int check_d = 0;
     int check_f = 0;
 
-    Pane gamepane = new Pane();
+    private Pane gamepane;
     Circle circ1 = new Circle(50, RED);
     Circle circ2 = new Circle(50, RED);
     Circle circ3 = new Circle(50, RED);
@@ -84,7 +87,11 @@ public class PerodicGame extends Application {
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException{
+        Pane placeholder = new Pane();
+        gamepane.getChildren().clear();
+        if(gamepane.getScene() != null){
+            gamepane.getScene().setRoot(placeholder);}
         Scene scene = new Scene(gamepane, 1000, 1000);
 
         elementbox.setLayoutX(10);

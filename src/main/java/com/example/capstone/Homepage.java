@@ -60,6 +60,8 @@ public class Homepage extends Application {
     }
     public void perodicgames(ActionEvent e) {
         Stage stage = new Stage();
-        game.start(stage);
+        try{game.start(stage);} catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
     }
 }
